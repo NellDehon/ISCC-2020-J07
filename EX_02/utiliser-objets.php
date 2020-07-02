@@ -3,34 +3,31 @@
 <body>
  
 <?php
-class date1
-{
- function DateTime()
- {
- echo "02/07/2020";
- }
-}
- 
-$bar = new date1;
-$bar->DateTime();
+
+$date1 = new Datetime();
+
 ?>
 <p>
 <?php
-$maintenant = new DateTime();
-echo 'Cette page a été générée le'. $maintenant->format('d/m/Y à H:i:s').' (heure locale)';
+echo $date1->format('Y/m/d à H:i:s');
 ?>
 </p>
 <?php
-class date2
-{
- function DateTime()
- {
- echo "22/06/2020";
- }
- }
- 
- $bar = new date2;
- $bar->DateTime();
+
+ $date2 = new DateTime();
+ $date2->setDate(2020,06,22);
+ $date2->setTime(9,00,00);
+
  ?>
+ <?php
+ $interval = $date1->diff($date2);
+ echo $interval->format("%djours");
+ ?>
+ <p>
+     <?php
+$interval=$date1->diff($date2);
+echo $interval->format("%d jours %h heures %i minutes")
+?>
+</p>
 </body>
 </html>
